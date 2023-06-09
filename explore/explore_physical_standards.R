@@ -21,8 +21,6 @@ phys <- structure(list(type = c("Novice", "PR", "Gang Fit", "Advanced"),
                   row.names = c(NA, -4L),
                   class = "data.frame")
 
-install.packages("devtools")
-devtools::install_github("ricardo-bion/ggradar")
 library(ggradar)
 
 normalize <- function(x) {
@@ -36,4 +34,4 @@ phys_std <- phys %>%
          endurance = 1 - endurance,
          health = 1 - health)
 
-ggradar(phys.std)
+ggradar(phys_std)
