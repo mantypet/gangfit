@@ -23,11 +23,6 @@ phys <- structure(list(type = c("Novice", "PR", "Gang Fit", "Advanced"),
 
 library(ggradar)
 
-normalize <- function(x) {
-  if (any(is.na(x))) stop("NA values not allowed")
-  (x - min(x)) / (max(x) - min(x))
-}
-
 phys_std <- phys %>%
   mutate(across(where(~is.numeric(.x)), ~normalize(.x))) %>%
   mutate(speed = 1 - speed,
