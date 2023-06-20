@@ -1,5 +1,28 @@
 library(tidyverse)
 library(janitor)
+library(XML)
+
+#' Read a GPX file
+#' 
+#' @param gpx_file A GPX file
+#' @return A data frame
+#' 
+#' @examples
+#' read_gpx(here::here("data/20230617_challenge.gpx"))
+#' 
+read_gpx <- function(gpx_file) {
+  gpx <- htmlTreeParse(file = gpx_file, useInternalNodes = TRUE)
+  coords <- xpathSApply(gpx, path = "//trkpt", xmlAttrs)
+  elev   <- xpathSApply(gpx, path = "//trkpt/ele", xmlValue)
+  ts_chr <- xpathSApply(gpx, path = "//trkpt/time", xmlValue)
+  dat_df <- data.frame(
+    ts_POSIXct = ymd_hms(ts_chr),
+    lat = as.numeric(coords["lat", ]),
+    lon = as.numeric(coords["lon", ]),
+    elev = as.numeric(elev)
+  )
+  return(dat_df)
+}
 
 #' Normalize a vector to [0, 1]
 #'
