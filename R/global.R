@@ -5,13 +5,13 @@ library(sf)
 library(mgrs)
 
 #' Read a GPX file
-#' 
+#'
 #' @param gpx_file A GPX file
 #' @return A data frame
-#' 
+#'
 #' @examples
 #' read_gpx(here::here((gpx_file = "data/20230617_challenge.gpx"))
-#' 
+#'
 read_gpx <- function(gpx_file) {
   gpx <- htmlTreeParse(file = gpx_file, useInternalNodes = TRUE)
   coords <- xpathSApply(gpx, path = "//trkpt", xmlAttrs)
@@ -44,7 +44,7 @@ normalize <- function(x) {
 #'
 #' @param x A character vector
 #' @return A character vector
-#' 
+#'
 #' @examples
 #' mark_double_digits(c("1_2", "3_4", "5_6"))
 mark_double_digits <- function(x) {
@@ -57,14 +57,14 @@ todo_function <- function() {
   # read in 20230515_generalstrength.csv
   generalstrength <- read_csv(here::here("data", "20230515_generalstrength.csv")) %>%
     clean_names() %>%
-    mutate(chinup_reps = mark_double_digits( chinup_reps))
-  
-  
+    mutate(chinup_reps = mark_double_digits(chinup_reps))
+
+
   # separate squat_reps to multiple columns
   generalstrength_ <- generalstrength %>%
     separate_wider_regex(cols = squat_reps, pattern = c(squat_reps_1 = "\\d", "", squat_reps_2 = "\\d", "", squat_reps_3 = "\\d")) %>%
     # copy separate_wider_regex but with press_reps and bench_reps
-    separate_wider_regex(cols = press_reps, pattern = c(press_reps_1 = "\\d", "", press_reps_2 = "\\d", "", press_reps_3 = "\\d")) %>% 
+    separate_wider_regex(cols = press_reps, pattern = c(press_reps_1 = "\\d", "", press_reps_2 = "\\d", "", press_reps_3 = "\\d")) %>%
     separate_wider_regex(cols = bench_reps, pattern = c(bench_reps_1 = "\\d", "", bench_reps_2 = "\\d", "", bench_reps_3 = "\\d")) %>%
     # again copy separate_wider_regex but with power_clean_reps and to 5 columns
     separate_wider_regex(cols = power_clean_reps, pattern = c(power_clean_reps_1 = "\\d", "", power_clean_reps_2 = "\\d", "", power_clean_reps_3 = "\\d", "", power_clean_reps_4 = "\\d", "", power_clean_reps_5 = "\\d"))
