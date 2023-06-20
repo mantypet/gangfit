@@ -2,7 +2,6 @@ library(tidyverse)
 library(janitor)
 library(XML)
 library(sf)
-library(mgrs)
 
 #' Read a GPX file
 #'
