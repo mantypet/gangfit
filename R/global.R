@@ -1,6 +1,8 @@
 library(tidyverse)
 library(janitor)
 library(XML)
+library(sf)
+library(mgrs)
 
 #' Read a GPX file
 #' 
@@ -8,18 +10,20 @@ library(XML)
 #' @return A data frame
 #' 
 #' @examples
-#' read_gpx(here::here("data/20230617_challenge.gpx"))
+#' read_gpx(here::here((gpx_file = "data/20230617_challenge.gpx"))
 #' 
 read_gpx <- function(gpx_file) {
   gpx <- htmlTreeParse(file = gpx_file, useInternalNodes = TRUE)
   coords <- xpathSApply(gpx, path = "//trkpt", xmlAttrs)
   elev   <- xpathSApply(gpx, path = "//trkpt/ele", xmlValue)
   ts_chr <- xpathSApply(gpx, path = "//trkpt/time", xmlValue)
+  hr <- xpathSApply(gpx, path = "//trkpt/extensions", xmlValue)
   dat_df <- data.frame(
-    ts_POSIXct = ymd_hms(ts_chr),
+    ts_POSIXct = ymd_hms(ts_chr, tz = "Europe/Helsinki", quiet = TRUE),
     lat = as.numeric(coords["lat", ]),
     lon = as.numeric(coords["lon", ]),
-    elev = as.numeric(elev)
+    elev = as.numeric(elev),
+    hr = as.numeric(hr)
   )
   return(dat_df)
 }
