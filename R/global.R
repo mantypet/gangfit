@@ -2,6 +2,7 @@ library(tidyverse)
 library(janitor)
 library(XML)
 library(sf)
+library(slider)
 
 #' Read a GPX file
 #'
@@ -18,7 +19,7 @@ read_gpx <- function(gpx_file) {
   ts_chr <- xpathSApply(gpx, path = "//trkpt/time", xmlValue)
   hr <- xpathSApply(gpx, path = "//trkpt/extensions", xmlValue)
   dat_df <- data.frame(
-    time = ymd_hms(ts_chr, tz = "Europe/Helsinki", quiet = TRUE),
+    datetime = ymd_hms(ts_chr, tz = "Europe/Helsinki", quiet = TRUE),
     lat = as.numeric(coords["lat", ]),
     lon = as.numeric(coords["lon", ]),
     elevation = as.numeric(elev),
