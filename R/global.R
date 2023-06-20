@@ -18,10 +18,10 @@ read_gpx <- function(gpx_file) {
   ts_chr <- xpathSApply(gpx, path = "//trkpt/time", xmlValue)
   hr <- xpathSApply(gpx, path = "//trkpt/extensions", xmlValue)
   dat_df <- data.frame(
-    ts_POSIXct = ymd_hms(ts_chr, tz = "Europe/Helsinki", quiet = TRUE),
+    time = ymd_hms(ts_chr, tz = "Europe/Helsinki", quiet = TRUE),
     lat = as.numeric(coords["lat", ]),
     lon = as.numeric(coords["lon", ]),
-    elev = as.numeric(elev),
+    elevation = as.numeric(elev),
     hr = as.numeric(hr)
   )
   return(dat_df)

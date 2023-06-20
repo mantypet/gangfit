@@ -7,6 +7,8 @@ challenge_sf <- challenge %>%
   st_as_sf(coords = c("lon", "lat"), crs = 4326) %>%
   st_transform(crs = 3067)
 
+
+
 # ggplot geom_point_sf
 ggplot() +
   geom_sf(data = challenge_sf, aes(color = hr)) +
