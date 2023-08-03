@@ -5,13 +5,16 @@ generalstrength <- read_generalstrength(csv_file = here::here("data", "20230803_
 vahvinressu <- generalstrength %>%
   select(date, starts_with("squat"), starts_with("deadlift"), notes)
 
+time_to_event <- 120
+
 end_date_2022 <- as.Date("2022-08-20")
-start_date_2022 <- end_date_2022 - 91
+start_date_2022 <- end_date_2022 - time_to_event
 end_date_2023 <- as.Date("2023-08-19")
-start_date_2023 <- end_date_2023 - 91
+start_date_2023 <- end_date_2023 - time_to_event
 
 vahvinressu22 <- vahvinressu %>%
-  mutate(t = as.numeric(date - end_date_2022)) %>%
+  mutate(t = as.numeric(date - end_date_2022),
+         t_pos = t + 120) %>%
   filter(date >= start_date_2022 & date <= end_date_2022) %>%
   mutate(squat_weight = case_when(squat_reps != "555" | squat_sets_completed != 3 ~ NA,
                                   TRUE ~ squat_weight),
@@ -19,7 +22,8 @@ vahvinressu22 <- vahvinressu %>%
                                   TRUE ~ deadlift_weight))
 
 vahvinressu23 <- vahvinressu %>%
-  mutate(t = as.numeric(date - end_date_2023)) %>%
+  mutate(t = as.numeric(date - end_date_2023),
+         t_pos = t + 120) %>%
   filter(date >= start_date_2023 & date <= end_date_2023) %>%
   mutate(squat_weight = case_when(squat_reps != "555" | squat_sets_completed != 3 ~ NA,
                                   TRUE ~ squat_weight),
@@ -29,15 +33,24 @@ vahvinressu23 <- vahvinressu %>%
 ggplot() +
   geom_point(data = slice_head(vahvinressu22, n = -1), aes(x = t, y = squat_weight), color = "lightgrey") + 
   geom_point(data = vahvinressu23, aes(x = t, y = squat_weight), color = "darkgreen") +
-  geom_smooth(data = slice_head(vahvinressu22, n = -1), aes(x = t, y = squat_weight), color = "lightgrey") + 
-  geom_smooth(data = vahvinressu23, aes(x = t, y = squat_weight), color = "darkgreen") +
-  xlim(-91, 0) +
+  geom_smooth(data = slice_head(vahvinressu22, n = -1), aes(x = t, y = squat_weight), color = "lightgrey",
+              method = "loess", fullrange = TRUE, se = FALSE) + 
+  geom_smooth(data = vahvinressu23, aes(x = t, y = squat_weight), color = "darkgreen",
+              method = "loess", fullrange = TRUE, se = FALSE) +
+  xlim(-time_to_event, 30) +
   theme_minimal()
 
 ggplot() +
   geom_point(data = slice_head(vahvinressu22, n = -1), aes(x = t, y = deadlift_weight), color = "lightgrey") + 
   geom_point(data = vahvinressu23, aes(x = t, y = deadlift_weight), color = "darkgreen") +
-  geom_smooth(data = slice_head(vahvinressu22, n = -1), aes(x = t, y = deadlift_weight), color = "lightgrey") + 
-  geom_smooth(data = vahvinressu23, aes(x = t, y = deadlift_weight), color = "darkgreen") +
-  xlim(-91, 0) +
+  stat_smooth(data = slice_head(vahvinressu22, n = -1), aes(x = t, y = deadlift_weight), color = "lightgrey",
+              method = "loess", fullrange = TRUE, se = FALSE) + 
+  stat_smooth(data = vahvinressu23, aes(x = t, y = deadlift_weight), color = "darkgreen",
+              method = "loess", fullrange = TRUE, se = FALSE) +
+  xlim(-time_to_event, 30) +
   theme_minimal()
+
+mdl <- glm(formula = t_pos ~ deadlift_weight,  family = Gamma(link="log"), data = vahvinressu23)
+
+summary(mdl, dispersion = 1) 
+
