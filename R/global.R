@@ -53,14 +53,18 @@ mark_double_digits <- function(x) {
   x
 }
 
-todo_function <- function() {
+read_generalstrength <- function(csv_file = here::here("data", "20230803_generalstrength.csv")) {
   # read in 20230515_generalstrength.csv
-  generalstrength <- read_csv(here::here("data", "20230515_generalstrength.csv")) %>%
+  generalstrength <- read_csv(csv_file, ) %>%
     clean_names() %>%
     mutate(chinup_reps = mark_double_digits(chinup_reps))
+  
+  generalstrength
+}
 
+todo_function <- function() {
 
-  # separate squat_reps to multiple columns
+  # separate *_reps to multiple columns
   generalstrength_ <- generalstrength %>%
     separate_wider_regex(cols = squat_reps, pattern = c(squat_reps_1 = "\\d", "", squat_reps_2 = "\\d", "", squat_reps_3 = "\\d")) %>%
     # copy separate_wider_regex but with press_reps and bench_reps
