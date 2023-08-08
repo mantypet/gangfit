@@ -1,23 +1,9 @@
 source(here::here("R/global.R")) 
 
-generalstrength <- read_generalstrength(csv_file = here::here("data", "20230803_generalstrength.csv"))
+generalstrength <- read_generalstrength(csv_file = here::here("data", "20230807_generalstrength.csv"))
 
 vahvinressu <- generalstrength %>%
   select(date, starts_with("squat"), starts_with("deadlift"), notes)
-
-# Add rows manually, export broken?
-extra <- data.frame(
-  "date" = as.Date(c("2023-08-04", "2023-08-07")),
-  "squat_weight" = c(137.5, 140),
-  "squat_sets_completed" = c(3,3),
-  "squat_reps" = c("555", "555"),
-  "deadlift_weight" = c(NA, 172.5),
-  "deadlift_sets_completed" = c(NA, 1),
-  "deadlift_reps" = c(NA, 5),
-  "notes"   = c("Notes", "Notes")
-)
-vahvinressu <- vahvinressu %>%
-  bind_rows(extra)
 
 time_to_event <- 120
 
