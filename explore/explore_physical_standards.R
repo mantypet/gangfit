@@ -1,11 +1,11 @@
 source(here::here("R/global.R"))
 
 # General strength (1RM 2 x BW)
-dl <- 155 / 89
+dl <- 172.5 / 92
 # Usable upperbody strength (20 reps)
-pu <- 10
+pu <- 12
 # Speed (13 s)
-sprint_100m <- 15
+sprint_100m <- 14.5
 # Endurance (360 s)
 run_1mile <- 445
 # Health (BF 10-12 %)
