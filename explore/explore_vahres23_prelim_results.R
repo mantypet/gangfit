@@ -12,6 +12,8 @@ ajon23 <- data.frame(toisto = c(0,1,5,11,16,19),
 ajon <- bind_rows(ajon22, ajon23) %>%
   mutate(toistoa_sek = ifelse(aika < 0.01, 0, toisto/aika))
 
+palette_vahres <- c("#c7d9bd","#8da043","#437338")
+
 ggplot(ajon) +
   geom_line(aes(x = aika, y = toisto, group = Vuosi, color = Vuosi), linewidth = 0.8) +
   geom_point(aes(x = aika, y = toisto, group = Vuosi, color = Vuosi), size = 2.2) +
@@ -21,7 +23,6 @@ ggplot(ajon) +
   ylab("Veto") + 
   ggtitle("Sotilasajoneuvon veto")
   
-palette_vahres <- c("#c7d9bd","#8da043","#437338")
 
 ggplot(ajon) +
   geom_line(aes(x = toisto, y = toistoa_sek, group = Vuosi, color = Vuosi), linewidth = 0.8) +
@@ -31,3 +32,25 @@ ggplot(ajon) +
   xlab("Veto #") +
   ylab("Vetonopeus (vetoa sekunnissa)") +
   ggtitle("Sotilasajoneuvon veto")
+
+# tykin lavetin nosto
+
+tykki22 <- data.frame(toisto = c(0,5,10,15,20,25,30,35),
+                     aika = c(0,7,15,23,31,40,49,60)) %>%
+  mutate(Vuosi = "2022")
+
+tykki23 <- data.frame(toisto =c(0,5,10,15,20,25,30,35,37),
+                     aika = c(0,7,13,21,29,38,47,57,60)) %>%
+  mutate(Vuosi = "2023")
+
+tykki <- bind_rows(tykki22, tykki23) %>%
+  mutate(toistoa_sek = ifelse(aika < 0.01, 0, toisto/aika))
+
+ggplot(tykki) +
+  geom_line(aes(x = toisto, y = toistoa_sek, group = Vuosi, color = Vuosi), linewidth = 0.8) +
+  geom_point(aes(x = toisto, y = toistoa_sek, group = Vuosi, color = Vuosi), size = 2.2) +
+  scale_color_manual(values = palette_vahres[c(1,3)]) +
+  theme_minimal() +
+  xlab("Toisto #") +
+  ylab("Toistonopeus (toistoa sekunnissa)") +
+  ggtitle("Tykkilavetin nosto")
