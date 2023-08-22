@@ -54,3 +54,25 @@ ggplot(tykki) +
   xlab("Toisto #") +
   ylab("Toistonopeus (toistoa sekunnissa)") +
   ggtitle("Tykkilavetin nosto")
+
+# taistelijan pyörä
+
+taist22 <- data.frame(toisto = c(0,20,40,60,80,100,105),
+                      aika = c(0,14,26,38,50,61,65)) %>%
+  mutate(Vuosi = "2022")
+
+taist23 <- data.frame(toisto =c(0,20,40,60,80,100,120,125),
+                      aika = c(0,13,25,37,49,60,71,75)) %>%
+  mutate(Vuosi = "2023")
+
+taist <- bind_rows(taist22, taist23) %>%
+  mutate(toistoa_sek = ifelse(aika < 0.01, 0, toisto/aika))
+
+ggplot(taist) +
+  geom_line(aes(x = toisto, y = toistoa_sek, group = Vuosi, color = Vuosi), linewidth = 0.8) +
+  geom_point(aes(x = toisto, y = toistoa_sek, group = Vuosi, color = Vuosi), size = 2.2) +
+  scale_color_manual(values = palette_vahres[c(1,3)]) +
+  theme_minimal() +
+  xlab("Matka (m)") +
+  ylab("Nopeus (m/s)") +
+  ggtitle("Taistelijan pyörä")
