@@ -8,7 +8,7 @@ aika_as_numeric <- function(x) {
 
 palette_vahres_3 <- c("#c7d9bd","#8da043","#437338")
 
-palette_vahres_5 <- colorRampPalette(c(palette_vahres[1], palette_vahres[3]))( 5 )
+palette_vahres_5 <- colorRampPalette(c(palette_vahres_3[1], palette_vahres_3[3]))( 5 )
 
 # ajoneuvon veto
 
@@ -27,8 +27,10 @@ ajon.rep <- ajon %>%
 
 ajon.rep %>%
   ggplot() +
-  geom_point(aes(x = vuosi, y = Aika_s, color = Sarja), size = 2.2) +
-  geom_line(aes(x = vuosi, y = Aika_s, group = Nimi, color = Sarja), linewidth = 0.7) +
+  geom_point(aes(x = vuosi, y = Aika_s, color = Sarja), size = 3) +
+  geom_line(aes(x = vuosi, y = Aika_s, group = Nimi, color = Sarja), linewidth = 1) +
+  scale_color_manual(values = palette_vahres_5) +
+  scale_y_continuous(trans='log10') +
   theme_minimal()
 
 
@@ -115,8 +117,8 @@ tykki.summary %>%
 
 tykki.rep %>%
   ggplot() +
-  geom_point(aes(x = vuosi, y = toistot, color = Sarja), size = 2.2) +
-  geom_line(aes(x = vuosi, y = toistot, group = Nimi, color = Sarja), linewidth = 0.7) +
+  geom_point(aes(x = vuosi, y = toistot, color = Sarja), size = 3) +
+  geom_line(aes(x = vuosi, y = toistot, group = Nimi, color = Sarja), linewidth = 1) +
   scale_color_manual(values = palette_vahres_5) +
   theme_minimal()
 
@@ -125,7 +127,8 @@ tykki.rep_m <- tykki.rep %>%
   #filter(Sarja %in% c("-80kg", "-100kg", "+100kg")) %>%
   mutate(vuosi_num = as.numeric(vuosi),
          vuosi_center = vuosi_num-mean(vuosi_num),
-         vuosi_intercept = vuosi_num-min(vuosi_num))
+         vuosi_intercept = vuosi_num-min(vuosi_num),
+         sarja_num = str_remove(Sarja,"kg"))
 
 fit_tykki <- lm(toistot ~ vuosi_center + Sarja, data = tykki.rep_m)
 
@@ -145,8 +148,10 @@ taist.rep <- taist %>%
   rename(massa = `Kannettava massa`) %>%
   mutate(massa_num = as.numeric(str_remove(massa, "kg")),
          matka = `Metriä`,
-         painotettu_matka = matka*massa_num) %>%
-  mutate(Sarja = factor(Sarja, levels = c("-75kg","+75kg","-80kg","-100kg","+100kg")))
+         painotettu_matka = matka*massa_num,
+         vuosi_intercept = as.numeric(vuosi) - 2022) %>%
+  mutate(Sarja = factor(Sarja, levels = c("-75kg","+75kg","-80kg","-100kg","+100kg")),
+         sarja_num = abs(as.numeric(str_remove(Sarja, "kg"))+10))
 
 taist.rep %>%
   ggplot() +
@@ -157,8 +162,15 @@ taist.rep %>%
 
 #https://zief0002.github.io/gentrified-ladybug/notes/s22-17-lmer-average-change-over-time.html
 
-library(lme4)
-library(broom.mixed)
+# Load libraries
+library(AICcmodavg)
+library(broom.mixed) #for tidy, glance, and augment functions for lme4 models
+library(corrr)
+library(educate)
+library(lme4) #for fitting mixed-effects models
+library(patchwork)
+library(texreg)
+
 # Fit model
 lmer.0 = lmer(matka ~ 1 + (1 | Nimi), data = taist.rep, REML = FALSE)
 
@@ -168,10 +180,112 @@ tidy(lmer.0, effects = "fixed")
 # Obtain random effects
 tidy(lmer.0, effects = "ran_vals")
 
-# Obtain student-specific coefficients
+# Obtain contender-specific coefficients
 tidy(lmer.0, effects = "ran_coefs")
 
-# eg. Petteri's results
+# Obtain variance estimates
+sd_est <- tidy(lmer.0, effects = "ran_pars")
+sd_est
+
+# Total unexplained variance
+sum(tidy(lmer.0, effects = "ran_pars")$estimate^2)
+
+# Proportion of unexplained variation that is between-subjects
+sd_est$estimate[1]^2/sum(sd_est$estimate^2)
+
+# Proportion of unexplained variation that is within-subjects
+sd_est$estimate[2]^2/sum(sd_est$estimate^2)
+
+# Fit unconditional growth model (within subject)
+lmer.1.ws = lmer(matka ~ 1 + vuosi_intercept + (1|Nimi), data = taist.rep, REML = FALSE)
+
+# Coefficient-level output
+tidy(lmer.1.ws, effects = "fixed")
+
+# SD estimates
+tidy(lmer.1.ws, effects = "ran_pars")
 
 # Obtain variance estimates
-tidy(lmer.0, effects = "ran_pars")
+sd_est <- tidy(lmer.1.ws, effects = "ran_pars")
+sd_est
+
+# Total unexplained variance
+sum(tidy(lmer.1.ws, effects = "ran_pars")$estimate^2)
+
+# Proportion of unexplained variation that is between-subjects
+sd_est$estimate[1]^2/sum(sd_est$estimate^2)
+
+# Proportion of unexplained variation that is within-subjects
+sd_est$estimate[2]^2/sum(sd_est$estimate^2)
+
+# Fit unconditional growth model (between subject)
+lmer.1.bs = lmer(matka ~ 1 + sarja_num + (1|Nimi), data = taist.rep, REML = FALSE)
+
+# Coefficient-level output
+tidy(lmer.1.bs, effects = "fixed")
+
+# SD estimates
+tidy(lmer.1.bs, effects = "ran_pars")
+
+# Obtain variance estimates
+sd_est <- tidy(lmer.1.bs, effects = "ran_pars")
+sd_est
+
+# Total unexplained variance
+sum(tidy(lmer.1.bs, effects = "ran_pars")$estimate^2)
+
+# Proportion of unexplained variation that is between-subjects
+sd_est$estimate[1]^2/sum(sd_est$estimate^2)
+
+# Proportion of unexplained variation that is within-subjects
+sd_est$estimate[2]^2/sum(sd_est$estimate^2)
+
+# Fit unconditional growth model
+lmer.2 = lmer(matka ~ 1 + vuosi_intercept + sarja_num + (1|Nimi) , data = taist.rep, REML = FALSE)
+
+# Coefficient-level output
+tidy(lmer.2, effects = "fixed")
+
+# SD estimates
+tidy(lmer.2, effects = "ran_pars")
+
+# Obtain variance estimates
+sd_est <- tidy(lmer.2, effects = "ran_pars")
+sd_est
+
+# Total unexplained variance
+sum(tidy(lmer.2, effects = "ran_pars")$estimate^2)
+
+# Proportion of unexplained variation that is between-subjects
+sd_est$estimate[1]^2/sum(sd_est$estimate^2)
+
+# Proportion of unexplained variation that is within-subjects
+sd_est$estimate[2]^2/sum(sd_est$estimate^2)
+
+aictab(
+  cand.set = list(lmer.0, lmer.1.ws, lmer.1.bs, lmer.2),
+  modnames = c("No change", "Linear growth within subject", "Linear growth between subject", "test")
+)
+
+### Kooste
+ajon.rep %>%
+  ggplot() +
+  geom_point(aes(x = vuosi, y = Aika_s, color = Sarja), size = 3) +
+  geom_line(aes(x = vuosi, y = Aika_s, group = Nimi, color = Sarja), linewidth = 1) +
+  scale_color_manual(values = palette_vahres_5) +
+  scale_y_continuous(trans='log10') +
+  theme_minimal()
+
+tykki.rep %>%
+  ggplot() +
+  geom_point(aes(x = vuosi, y = toistot, color = Sarja), size = 3) +
+  geom_line(aes(x = vuosi, y = toistot, group = Nimi, color = Sarja), linewidth = 1) +
+  scale_color_manual(values = palette_vahres_5) +
+  theme_minimal()
+
+taist.rep %>%
+  ggplot() +
+  geom_point(aes(x = vuosi, y = matka, color = Sarja), size = 3) +
+  geom_line(aes(x = vuosi, y = matka, group = Nimi, color = Sarja), linewidth = 1) +
+  scale_color_manual(values = palette_vahres_5) +
+  theme_minimal()
