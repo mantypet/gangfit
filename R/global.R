@@ -73,3 +73,42 @@ todo_function <- function() {
     # again copy separate_wider_regex but with power_clean_reps and to 5 columns
     separate_wider_regex(cols = power_clean_reps, pattern = c(power_clean_reps_1 = "\\d", "", power_clean_reps_2 = "\\d", "", power_clean_reps_3 = "\\d", "", power_clean_reps_4 = "\\d", "", power_clean_reps_5 = "\\d"))
 }
+
+# Read vahvin reserviläinen CSV's
+
+read_vahres <- function() {
+  ajon21 <- read_csv(here::here("data/vahres23/ajoneuvon_veto_2021.csv"), col_types = "icccccci") %>%
+    mutate(vuosi = "2021")
+  ajon22 <- read_csv(here::here("data/vahres23/ajoneuvon_veto_2022.csv"), col_types = "icccccci") %>%
+    mutate(vuosi = "2022")
+  ajon23 <- read_csv(here::here("data/vahres23/ajoneuvon_veto_2023.csv"), col_types = "icccccci") %>%
+    mutate(vuosi = "2023")
+  
+  ajon <- bind_rows(ajon21,ajon22,ajon23)
+  
+  tykki21 <- read_csv(here::here("data/vahres23/tykin_lavetin_nosto_2021.csv"), col_types = "icccici") %>%
+    mutate(vuosi = "2021")
+  tykki22 <- read_csv(here::here("data/vahres23/tykin_lavetin_nosto_2022.csv"), col_types = "icccici") %>%
+    mutate(vuosi = "2022")
+  tykki23 <- read_csv(here::here("data/vahres23/tykin_lavetin_nosto_2023.csv"), col_types = "icccici") %>%
+    mutate(vuosi = "2023")
+  
+  tykki <- bind_rows(tykki21,tykki22,tykki23)
+  
+  taist22 <- read_csv(here::here("data/vahres23/taistelijan_pyora_2022.csv"), col_types = "icccici") %>%
+    mutate(vuosi = "2022")
+  taist23 <- read_csv(here::here("data/vahres23/taistelijan_pyora_2023.csv"), col_types = "icccici") %>%
+    mutate(vuosi = "2023")
+  
+  taist <- bind_rows(taist22,taist23)
+  
+  list("ajoneuvon_veto" = ajon,
+       "tykin_lavetin_nosto" = tykki,
+       "taistelijan_pyora" = taist)
+}
+
+aika_as_numeric <- function(x) {
+  ms(x, roll = TRUE) %>%
+    seconds() %>%
+    as.numeric()
+}
