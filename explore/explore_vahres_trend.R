@@ -1,27 +1,12 @@
-library(tidyverse)
+source(here::here("R/global.R"))
 
-aika_as_numeric <- function(x) {
-  ms(x, roll = TRUE) %>%
-    seconds() %>%
-    as.numeric()
-}
+vahres <- read_vahres()
 
-palette_vahres_3 <- c("#c7d9bd","#8da043","#437338")
-
-palette_vahres_5 <- colorRampPalette(c(palette_vahres_3[1], palette_vahres_3[3]))( 5 )
+palette_vahres_5 <- c("#424756", "#A65228", "#e1d798","#8da043", "#437338")
 
 # ajoneuvon veto
 
-ajon21 <- read_csv(here::here("data/vahres23/ajoneuvon_veto_2021.csv"), col_types = "iccccccii") %>%
-  mutate(vuosi = "2021")
-ajon22 <- read_csv(here::here("data/vahres23/ajoneuvon_veto_2022.csv"), col_types = "iccccccii") %>%
-  mutate(vuosi = "2022")
-ajon23 <- read_csv(here::here("data/vahres23/ajoneuvon_veto_2023.csv"), col_types = "iccccccii") %>%
-  mutate(vuosi = "2023")
-
-ajon <- bind_rows(ajon21,ajon22,ajon23)
-
-ajon.rep <- ajon %>%
+ajon.rep <- vahres$ajoneuvon_veto %>%
   mutate(Aika_s = aika_as_numeric(Aika),
          Sarja = factor(Sarja, levels = c("-75kg","+75kg","-80kg","-100kg","+100kg")))
 
@@ -36,17 +21,10 @@ ajon.rep %>%
 
 # tykin nosto
 
-tykki21 <- read_csv(here::here("data/vahres23/tykin_lavetin_nosto_2021.csv")) %>%
-  mutate(vuosi = "2021")
-tykki22 <- read_csv(here::here("data/vahres23/tykin_lavetin_nosto_2022.csv")) %>%
-  mutate(vuosi = "2022")
-tykki23 <- read_csv(here::here("data/vahres23/tykin_lavetin_nosto_2023.csv")) %>%
-  mutate(vuosi = "2023")
-
-tykki <- bind_rows(tykki21,tykki22,tykki23)
 
 
-tykki.rep <- tykki %>%
+
+tykki.rep <- vahres$tykin_lavetin_nosto %>%
   rename(massa = `Lavetin massa`) %>%
   mutate(massa_num = as.numeric(str_remove(massa, "kg")),
          toistot = `Toistoa/min`,
@@ -136,15 +114,10 @@ summary(fit_tykki)
 
 # taistelijan pyörä
 
-taist22 <- read_csv(here::here("data/vahres23/taistelijan_pyora_2022.csv")) %>%
-  mutate(vuosi = "2022")
-taist23 <- read_csv(here::here("data/vahres23/taistelijan_pyora_2023.csv")) %>%
-  mutate(vuosi = "2023")
-
-taist <- bind_rows(taist22,taist23)
 
 
-taist.rep <- taist %>%
+
+taist.rep <- vahres$taistelijan_pyora %>%
   rename(massa = `Kannettava massa`) %>%
   mutate(massa_num = as.numeric(str_remove(massa, "kg")),
          matka = `Metriä`,
@@ -166,7 +139,7 @@ taist.rep %>%
 library(AICcmodavg)
 library(broom.mixed) #for tidy, glance, and augment functions for lme4 models
 library(corrr)
-library(educate)
+#library(educate)
 library(lme4) #for fitting mixed-effects models
 library(patchwork)
 library(texreg)
@@ -224,6 +197,7 @@ lmer.1.bs = lmer(matka ~ 1 + sarja_num + (1|Nimi), data = taist.rep, REML = FALS
 # Coefficient-level output
 tidy(lmer.1.bs, effects = "fixed")
 
+
 # SD estimates
 tidy(lmer.1.bs, effects = "ran_pars")
 
@@ -241,10 +215,15 @@ sd_est$estimate[1]^2/sum(sd_est$estimate^2)
 sd_est$estimate[2]^2/sum(sd_est$estimate^2)
 
 # Fit unconditional growth model
-lmer.2 = lmer(matka ~ 1 + vuosi_intercept + sarja_num + (1|Nimi) , data = taist.rep, REML = FALSE)
+lmer.2 = lmer(matka ~ 1 + vuosi_intercept + Sarja + (1|Nimi) , data = taist.rep, REML = FALSE)
+
+summary(lmer.2)
 
 # Coefficient-level output
 tidy(lmer.2, effects = "fixed")
+
+# Obtain contender-specific coefficients
+tidy(lmer.2, effects = "ran_coefs") %>% View()
 
 # SD estimates
 tidy(lmer.2, effects = "ran_pars")
@@ -264,7 +243,7 @@ sd_est$estimate[2]^2/sum(sd_est$estimate^2)
 
 aictab(
   cand.set = list(lmer.0, lmer.1.ws, lmer.1.bs, lmer.2),
-  modnames = c("No change", "Linear growth within subject", "Linear growth between subject", "test")
+  modnames = c("No change", "Linear growth within subject", "Linear growth between subject", "Linear growth between subject")
 )
 
 ### Kooste
