@@ -13,14 +13,32 @@ Vahvin reserviläinen SM-kilpailu järjestettiin lauantaina 2023-08-19 Ylihärm�
 
 Katsotaan kuinka tällä kertaa kävi.
 
-### Kilpailu
+### Vahvinlajit: pakollinen tangentti historiaan
 
 "Yksikään kansalainen ei ole oikeutettu amatööriyteen fyysisessä harjoittelussa. On häpeällistä vanhentua näkemättä kauneutta ja voimaa, jonka oma vartalo voi saavuttaa." -Sokrates
 
-Vahvin reserviläinen -kilpailu putoaa nk. vahvinlajien lokeroon. Vahvinlajien historia on pitkä, samaa luokkaa kuin Olympian kisat (ks. Bybon ja Milon Krotonilainen molemmat 600-l eaa). Kaiken sortin voimainkoitoksia on tallentunut viimeisen tuhannen vuoden ajalta myös pitkin Pohjois-Euroopaa ja vahvinkilpailut elävät edelleen monien maiden kansanperinteissä. [Herri Kirolak](https://en.wikipedia.org/wiki/Basque_rural_sports) Baskien keskuudessa, Dinnie-kivet Skotlannissa,
+Vahvin reserviläinen -kilpailu putoaa nk. vahvinlajien lokeroon. Vahvinlajien kirjoitettu historia on pitkä ja ulottuu antiikkiin saakka (ks. [Bybon Pholan poika](https://en.wikipedia.org/wiki/Bybon), [Milon Krotonilainen](https://www.britannica.com/biography/Milo-of-Croton), [Titormus Aitolialainen](https://en.wikipedia.org/wiki/Titormus) kaikki 600-l eaa). Monenlaisia voimainkoitoksia on tallentunut viimeisen tuhannen vuoden ajalta myös pitkin Pohjois-Euroopaa ja vahvinkilpailut elävät edelleen monien maiden kansanperinteissä, [Herri Kirolak](https://en.wikipedia.org/wiki/Basque_rural_sports) Baskien keskuudessa, [Dinnie-kivet](https://en.wikipedia.org/wiki/Dinnie_Stones) Skotlannissa ja tietenkin [Aflraunasteinar](https://www.arnastofnun.is/is/greinar/aflraunasteinar) vahvinlajien mekassa Islannissa.
+
+Islanti ja voimailu ansaitsisi tässä oman kokonaisen kirjansa, mutta mainittakoon, että jo islantilaissaagoissa ([Grettir Väkevän saaga](https://fi.wikipedia.org/wiki/Grettir_Väkevän_saaga)) inhimillisiksi hyveiksi listataan kirjallinen lahjakkuus, painitaito ja fyysinen väkevyys. Samat hyveet koskivat naisia ja miehiä, ja eräs legendoista kertookin väkevästä pastorin tyttärestä joka kantoi sylissään 186-kiloisesta Kviahellaniksi nimettyä kivilaattaa (tunnetaan myös [Húsafellin kivenä](https://liftingstones.org/articles/husafell_stone)) kahdesti lammaskarsinan ympäri. Kivi ja karsina ovat edelleen olemassa ja paikka toimii tänäkin päivänä voimailijoiden pyhiinvaelluspaikkana Húsafellin kylän laitamilla. Toisena Islanti-triviana Islannissa on väkilukuun nähden eniten sekä [kirjailijoilta](https://www.guinnessworldrecords.com/world-records/444296-most-published-writers-per-capita) että [Maailman vahvin -kilpalilujen voittoja](https://www.thebarbell.com/strong-island-why-are-so-many-giant-strongmen-from-tiny-iceland/) maailmassa, joka viittaisi näiden perinteiden säilymiseen melko vahvana.
+
+Välinevalmistaja Rogue on tuottanut aiheesta muutamia oivia YouTube-dokkareita:
+
+Levantadores Baskimaasta:
+
+{{< video https://youtu.be/vck32S27RmM?si=uCPzVKJnI8xLZnRb >}}
+
+Stoneland Skotlannista:
+
+{{< video https://youtu.be/MhQlNwxn5oo?si=fPvKlTacSmnvIGyl >}}
+
+Fullsterkur Islannista:
+
+{{< video https://youtu.be/79Tcsg2Yac8?si=uaLGr9aOsrm1HzId >}}
 
 Nykymuodossaan vahvinlajeille tyypillisiä muotoja ovat painavien asioiden nostamisen lisäksi ajoneuvojen/kelkkojen vedot köydellä, taakkojen kantaminen ja erilaiset pidot. Perinteiset vahvinlajit koettelevat etenkin maksimivoimaa, mutta myös kestävyyttä ja jopa nopeutta ja ketteryyttä, ja toistaalta henkistä sitkeyttä.
 
-Vahvimman reserviläisen lajit ovat suunniteltu erityisesti sotilaan suorituskyvyn näkökulmasta. Kohtuullisen maksimivoiman lisäksi anaerobinen kynnys ylitetään ja osassa lajeista toimitaan jopa maksimaalisen kestävyyden sykealueilla vaatien hyvää maitohapon sietokykyä.
+### Vahvin Reserviläinen
+
+Vahvin reserviläinen on yhden päivän kilpailu, joka koostuu kolmesta lajisuorituksesta. Lajit ovat suunniteltu erityisesti sotilaan suorituskyvyn näkökulmasta. Kohtalaisen maksimivoiman lisäksi anaerobinen kynnys ylitetään ja osassa lajeista toimitaan jopa maksimaalisen kestävyyden sykealueilla vaatien hyvää maitohapon sietokykyä. Lajit voidaan suorittaa turvallisesti ja niihin on mahdollista osallistua matalalla kynnyksellä.
 
 Lajikuvaukset: 1) Sotilasajoneuvon veto Kilpailija vetää sotilasajoneuvoa köydellä 20m matkan mahdollisimman nopeasti. Kilpailupaikalla on vetoloossi ja maastokuorma-auto sekä maastohenkilöauto. Miehet maastokuorma-auto 5500kg ja naiset maastohenkilöauto 1800kg. 2) Tykin lavetin nosto Maastaveto tykin lavettiin kiinnitetyillä tangoilla, jossa kahvat ovat tykin putkien suuntaisesti. Kilpailutuloksen ratkaisee samalla kuormalla tehtyjen yhtäjaksoisten toistojen määrä minuutissa. Miesten tykki \[105H61\] kevytsarja 140kg, keskisarja 160kg ja raskassarja 180kg. Naisten tykki \[76K02 SKP\] kevytsarja 100kg, keskisarja 110kg ja raskassarja 120kg. Tykin lavettien painot säädetään lisäpainojen avulla mainittuihin painoihin. 3) Taistelijan pyörä Kilpailija kantaa käsissään vesitäytteisiä sotilaskanistereita kehän muodossa. Kilpailupaikalla on teräsrakenteinen pyörä, johon on kiinnitetty kaksi tai neljä sotilasmallista teräskanisteria. Miehet kantavat kahta paria ja naiset yhtä paria vesitäytteisiä sotilaskanistereita. Miehillä kannettava massa on 100kg ja naisilla 50kg. Kilpailutuloksen ratkaisee yhtäjaksoisesti pisimmälle kannettu taakka. Yksikierros kehässä on 20 metriä.
