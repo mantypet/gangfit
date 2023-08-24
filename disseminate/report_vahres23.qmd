@@ -1,7 +1,10 @@
 ---
 title: "Vahvin reserviläinen 2023 kisa-analyysi"
 author: "Petteri Mäntymaa"
-format: html
+format: html:
+          code-fold: true
+          code-summary: "Näytä lähdekoodi"
+
 editor: visual
 ---
 
@@ -41,7 +44,7 @@ Nykymuodossaan vahvinlajeille tyypillisiä muotoja ovat painavien asioiden nosta
 
 Vahvin reserviläinen on yhden päivän kilpailu, joka koostuu kolmesta lajisuorituksesta. Lajit ovat suunniteltu erityisesti sotilaan suorituskyvyn näkökulmasta. Kohtalaisen maksimivoiman lisäksi anaerobinen kynnys ylitetään ja osassa lajeista toimitaan jopa maksimaalisen kestävyyden sykealueilla vaatien hyvää maitohapon sietokykyä. Lajit voidaan suorittaa turvallisesti ja niihin on mahdollista osallistua matalalla kynnyksellä.
 
-#### Lajikuvaukset
+### Lajikuvaukset
 
 Sotilasajoneuvon veto:
 
@@ -49,8 +52,15 @@ Klassinen "Arm-over-arm", eli valjasvedon ohella se toinen tapa vetää ajoneuvo
 
 Tykin lavetin nosto:
 
-Myöskin klassinen kehikon tai auton maastavedon tapainen vetolaji. Tykin lavettia nostetaan lavettiin kiinnitetyillä tangoilla, jossa sarvikahvat asennettu tykin putkien suuntaisesti. Tavoitteena maksimitoistot minuutissa. Naisten sarjoissa nostettava tykki on 76 K 02 kanuuna, jossa lavetin kuorma lisäpainoin kevytsarjassa 100 kg, keskisarjassa 110 kg ja raskassarjassa 120kg. Miesten sarjoissa nostettava tykki on 105 H 61-37 haupitsi, jossa lavetin kuorma lisäpainoin kevytsarjassa 140 kg, keskisarjassa 160 kg ja raskasarjassa 180 kg. 
+Myöskin klassinen kehikon tai auton maastavedon tapainen vetolaji. Tykin lavettia nostetaan lavettiin kiinnitetyillä tangoilla, jossa sarvikahvat asennettu tykin putkien suuntaisesti. Tavoitteena maksimitoistot minuutissa. Naisten sarjoissa nostettava tykki on 76 K 02 kanuuna, jossa lavetin kuorma lisäpainoin kevytsarjassa 100 kg, keskisarjassa 110 kg ja raskassarjassa 120kg. Miesten sarjoissa nostettava tykki on 105 H 61-37 haupitsi, jossa lavetin kuorma lisäpainoin kevytsarjassa 140 kg, keskisarjassa 160 kg ja raskasarjassa 180 kg.
 
 Taistelijan pyörä:
 
 Tunnetaan vahvinlajeissa farmarinkävelynä. Kilpailija kantaa käsissään vesitäytteisillä sotilaskanistereilla kuormattua kehikkoa napaan kiinnitetyn puomin muodostamaa kehää kulkien. Naisten sarjoissa kehikkoon on kiinnitetty yksi pari sotilaskanistereita yhteensä 50 kg kuormalla ja miesten sarjoissa kaksi paria yhteensä 100 kg kuormalla. Tavoitteena on kantaa kuormaa mahdollisimman pitkä yhtäjaksoinen matka.
+
+## Analyysi
+
+```{r data}
+source(here::here("R/global.R"))
+vahres <- read_vahres()
+```
