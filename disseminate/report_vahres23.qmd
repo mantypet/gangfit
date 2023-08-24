@@ -5,21 +5,21 @@ format: html
 editor: visual
 ---
 
-Näissä muistiinpanoissa kurkistan Vahvin reserviläinen 2023 -kilpailun tuloksiin peilaten niitä henkilökohtaisiin kokemuksiini kilpailijana.
-
-### Taustaa
-
 Vahvin reserviläinen SM-kilpailu järjestettiin lauantaina 2023-08-19 Ylihärmässä neljättä kertaa. Itse osallistuin kilpailuun toista kertaa. Ensimmäisen kerran mukaan tarttui täpärästi pisteen erolla keskisarjan (miehet, alle 100 kg) mestaruus.
 
+Näissä muistiinpanoissa kurkistan Vahvin reserviläinen 2023 -kilpailun tuloksiin peilaten niitä henkilökohtaisiin kokemuksiini kilpailijana ja vedän mukaan tarpeettoman suuren annoksen komerotilastotiedettä.
+
 Katsotaan kuinka tällä kertaa kävi.
+
+## Taustaa
 
 ### Vahvinlajit: pakollinen tangentti historiaan
 
 "Yksikään kansalainen ei ole oikeutettu amatööriyteen fyysisessä harjoittelussa. On häpeällistä vanhentua näkemättä kauneutta ja voimaa, jonka oma vartalo voi saavuttaa." -Sokrates
 
-Vahvin reserviläinen -kilpailu putoaa nk. vahvinlajien lokeroon. Vahvinlajien kirjoitettu historia on pitkä ja ulottuu antiikkiin saakka (ks. [Bybon Pholan poika](https://en.wikipedia.org/wiki/Bybon), [Milon Krotonilainen](https://www.britannica.com/biography/Milo-of-Croton), [Titormus Aitolialainen](https://en.wikipedia.org/wiki/Titormus) kaikki 600-l eaa). Monenlaisia voimainkoitoksia on tallentunut viimeisen tuhannen vuoden ajalta myös pitkin Pohjois-Euroopaa ja vahvinkilpailut elävät edelleen monien maiden kansanperinteissä, [Herri Kirolak](https://en.wikipedia.org/wiki/Basque_rural_sports) Baskien keskuudessa, [Dinnie-kivet](https://en.wikipedia.org/wiki/Dinnie_Stones) Skotlannissa ja tietenkin [Aflraunasteinar](https://www.arnastofnun.is/is/greinar/aflraunasteinar) vahvinlajien mekassa Islannissa.
+Vahvin reserviläinen -kilpailu putoaa nk. vahvinlajien lokeroon. Vahvinlajien kirjoitettu historia on pitkä ja ulottuu antiikkiin saakka (ks. [Bybon Pholan poika](https://en.wikipedia.org/wiki/Bybon), [Milon Krotonilainen](https://www.britannica.com/biography/Milo-of-Croton), [Titormus Aitolialainen](https://en.wikipedia.org/wiki/Titormus) kaikki 600-l eaa). Monenlaisia voimainkoitoksia on tallentunut viimeisen tuhannen vuoden ajalta myös pitkin Pohjois-Euroopaa ja vahvinhommat elävät edelleen monien maiden kansanperinteissä, [Herri Kirolak](https://en.wikipedia.org/wiki/Basque_rural_sports) Baskien keskuudessa, [Dinnie-kivet](https://en.wikipedia.org/wiki/Dinnie_Stones) Skotlannissa ja tietenkin [Aflraunasteinar](https://www.arnastofnun.is/is/greinar/aflraunasteinar) vahvinlajien mekassa Islannissa.
 
-Islanti ja voimailu ansaitsisi tässä oman kokonaisen kirjansa, mutta mainittakoon, että jo islantilaissaagoissa ([Grettir Väkevän saaga](https://fi.wikipedia.org/wiki/Grettir_Väkevän_saaga)) inhimillisiksi hyveiksi listataan kirjallinen lahjakkuus, painitaito ja fyysinen väkevyys. Samat hyveet koskivat naisia ja miehiä, ja eräs legendoista kertookin väkevästä pastorin tyttärestä joka kantoi sylissään 186-kiloisesta Kviahellaniksi nimettyä kivilaattaa (tunnetaan myös [Húsafellin kivenä](https://liftingstones.org/articles/husafell_stone)) kahdesti lammaskarsinan ympäri. Kivi ja karsina ovat edelleen olemassa ja paikka toimii tänäkin päivänä voimailijoiden pyhiinvaelluspaikkana Húsafellin kylän laitamilla. Toisena Islanti-triviana Islannissa on väkilukuun nähden eniten sekä [kirjailijoilta](https://www.guinnessworldrecords.com/world-records/444296-most-published-writers-per-capita) että [Maailman vahvin -kilpalilujen voittoja](https://www.thebarbell.com/strong-island-why-are-so-many-giant-strongmen-from-tiny-iceland/) maailmassa, joka viittaisi näiden perinteiden säilymiseen melko vahvana.
+Islanti ja voimailu ansaitsisi tässä oman kokonaisen kirjansa, mutta mainittakoon, että jo islantilaissaagoissa ([Grettir Väkevän saaga](https://fi.wikipedia.org/wiki/Grettir_Väkevän_saaga)) inhimillisiksi hyveiksi listattiin kirjallinen lahjakkuus, painitaito ja fyysinen väkevyys. Samat hyveet koskivat naisia ja miehiä, ja eräs legendoista kertookin väkevästä pastorin tyttärestä joka kantoi sylissään 186-kiloisesta Kviahellaniksi ("karsinalaatta") nimettyä kivilaattaa (tunnetaan myös [Húsafellin kivenä](https://liftingstones.org/articles/husafell_stone)) kahdesti lammaskarsinan ympäri. Kivi ja karsina ovat edelleen olemassa ja paikka toimii tänäkin päivänä voimailijoiden pyhiinvaelluspaikkana Húsafellin kylän laitamilla. Toisena Islanti-triviana Islannissa on väkilukuun nähden eniten sekä [kirjailijoilta](https://www.guinnessworldrecords.com/world-records/444296-most-published-writers-per-capita) että [Maailman vahvin -kilpalilujen voittoja](https://www.thebarbell.com/strong-island-why-are-so-many-giant-strongmen-from-tiny-iceland/) maailmassa, mikä viittaisi näiden perinteiden säilymiseen melko vahvana.
 
 Välinevalmistaja Rogue on tuottanut aiheesta muutamia oivia YouTube-dokkareita:
 
@@ -35,10 +35,22 @@ Fullsterkur Islannista:
 
 {{< video https://youtu.be/79Tcsg2Yac8?si=uaLGr9aOsrm1HzId >}}
 
-Nykymuodossaan vahvinlajeille tyypillisiä muotoja ovat painavien asioiden nostamisen lisäksi ajoneuvojen/kelkkojen vedot köydellä, taakkojen kantaminen ja erilaiset pidot. Perinteiset vahvinlajit koettelevat etenkin maksimivoimaa, mutta myös kestävyyttä ja jopa nopeutta ja ketteryyttä, ja toistaalta henkistä sitkeyttä.
+Nykymuodossaan vahvinlajeille tyypillisiä muotoja ovat painavien asioiden nostamisen lisäksi ajoneuvojen/kelkkojen vedot köydellä, taakkojen kantaminen ja erilaiset pidot. Nykyaikaiset vahvinlajit koettelevat etenkin maksimivoimaa, mutta myös kestävyyttä ja jopa nopeutta ja ketteryyttä sekä henkistä sitkeyttä.
 
-### Vahvin Reserviläinen
+## Vahvin Reserviläinen
 
 Vahvin reserviläinen on yhden päivän kilpailu, joka koostuu kolmesta lajisuorituksesta. Lajit ovat suunniteltu erityisesti sotilaan suorituskyvyn näkökulmasta. Kohtalaisen maksimivoiman lisäksi anaerobinen kynnys ylitetään ja osassa lajeista toimitaan jopa maksimaalisen kestävyyden sykealueilla vaatien hyvää maitohapon sietokykyä. Lajit voidaan suorittaa turvallisesti ja niihin on mahdollista osallistua matalalla kynnyksellä.
 
-Lajikuvaukset: 1) Sotilasajoneuvon veto Kilpailija vetää sotilasajoneuvoa köydellä 20m matkan mahdollisimman nopeasti. Kilpailupaikalla on vetoloossi ja maastokuorma-auto sekä maastohenkilöauto. Miehet maastokuorma-auto 5500kg ja naiset maastohenkilöauto 1800kg. 2) Tykin lavetin nosto Maastaveto tykin lavettiin kiinnitetyillä tangoilla, jossa kahvat ovat tykin putkien suuntaisesti. Kilpailutuloksen ratkaisee samalla kuormalla tehtyjen yhtäjaksoisten toistojen määrä minuutissa. Miesten tykki \[105H61\] kevytsarja 140kg, keskisarja 160kg ja raskassarja 180kg. Naisten tykki \[76K02 SKP\] kevytsarja 100kg, keskisarja 110kg ja raskassarja 120kg. Tykin lavettien painot säädetään lisäpainojen avulla mainittuihin painoihin. 3) Taistelijan pyörä Kilpailija kantaa käsissään vesitäytteisiä sotilaskanistereita kehän muodossa. Kilpailupaikalla on teräsrakenteinen pyörä, johon on kiinnitetty kaksi tai neljä sotilasmallista teräskanisteria. Miehet kantavat kahta paria ja naiset yhtä paria vesitäytteisiä sotilaskanistereita. Miehillä kannettava massa on 100kg ja naisilla 50kg. Kilpailutuloksen ratkaisee yhtäjaksoisesti pisimmälle kannettu taakka. Yksikierros kehässä on 20 metriä.
+#### Lajikuvaukset
+
+Sotilasajoneuvon veto:
+
+Klassinen "Arm-over-arm", eli valjasvedon ohella se toinen tapa vetää ajoneuvoa. Tavoitteena on vetää vetoloossista sotilasajoneuvoa köydellä 20 metrin mahdollisimman nopeasti. Naisten sarjoissa vedettävänä ajoneuvona on 1800-kiloinen maastohenkilöauto ja miesten sarjoissa 5500-kiloinen maastokuorma-auto.
+
+Tykin lavetin nosto:
+
+Myöskin klassinen kehikon tai auton maastavedon tapainen vetolaji. Tykin lavettia nostetaan lavettiin kiinnitetyillä tangoilla, jossa sarvikahvat asennettu tykin putkien suuntaisesti. Tavoitteena maksimitoistot minuutissa. Naisten sarjoissa nostettava tykki on 76 K 02 kanuuna, jossa lavetin kuorma lisäpainoin kevytsarjassa 100 kg, keskisarjassa 110 kg ja raskassarjassa 120kg. Miesten sarjoissa nostettava tykki on 105 H 61-37 haupitsi, jossa lavetin kuorma lisäpainoin kevytsarjassa 140 kg, keskisarjassa 160 kg ja raskasarjassa 180 kg. 
+
+Taistelijan pyörä:
+
+Tunnetaan vahvinlajeissa farmarinkävelynä. Kilpailija kantaa käsissään vesitäytteisillä sotilaskanistereilla kuormattua kehikkoa napaan kiinnitetyn puomin muodostamaa kehää kulkien. Naisten sarjoissa kehikkoon on kiinnitetty yksi pari sotilaskanistereita yhteensä 50 kg kuormalla ja miesten sarjoissa kaksi paria yhteensä 100 kg kuormalla. Tavoitteena on kantaa kuormaa mahdollisimman pitkä yhtäjaksoinen matka.
