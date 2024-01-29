@@ -1,7 +1,7 @@
-library(tidyverse),
-library(janitor),
-library(XML),
-library(sf),
+library(tidyverse)
+library(janitor)
+library(XML)
+library(sf)
 library(slider)
 
 #' Read a GPX file
