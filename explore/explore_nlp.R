@@ -13,6 +13,32 @@ ss.rep <- ss %>%
   filter(!is.na(period)) %>%
   mutate(week_monday = lubridate::floor_date(date, unit = "week", week_start = 1))
 
+ss.rep <- ss.rep %>%
+  mutate(session_id = 1:nrow(ss.rep))
+
+ss.rep.diff.long <- ss.rep %>%
+  select(-ends_with("_reps")) %>%
+  pivot_longer(cols = c(squat_weight, deadlift_weight), names_to = "exercise", values_to = "weight") %>%
+  mutate(exercise = str_remove(string = exercise, pattern = "_weight")) %>%
+  filter(!is.na(weight)) %>%
+  group_by(exercise) %>%
+  mutate(lag_date = lag(date),
+         diff_date = as.integer(date-lag_date),
+         lag_weight = lag(weight),
+         diff_weight = weight-lag_weight)
+
+# missed training
+
+ggplot(ss.rep.diff.long %>% filter(diff_date < 60 & diff_weight < 26 & diff_weight > -26)) +
+  geom_smooth(aes(x = diff_date, y = diff_weight, color = exercise), method = "loess") +
+  geom_point(aes(x = diff_date, y = diff_weight, color = exercise)) +
+  # scale_x_continuous(breaks = 2*0:10) +
+  # scale_y_continuous(breaks = 5*10:40) +
+  theme_minimal()
+
+
+
+# period - session analysis
 ss.rep.week <- ss.rep %>%
   mutate(squat_weight = replace_na(squat_weight, 0),
          deadlift_weight = replace_na(deadlift_weight, 0)) %>%
